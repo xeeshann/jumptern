@@ -4,15 +4,21 @@ import { Calendar, Clock, Tag } from 'lucide-react';
 import { getImageUrl } from '@/lib/blogService';
 
 const BlogCard = ({ post, featured = false }) => {
-  const imageUrl = post.featuredImage ? getImageUrl(post.featuredImage) : '/public/next.svg';
-  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
+  // Handle safely when post might be undefined
+  if (!post) {
+    return null;
+  }
+  
+  // Safely access post properties and provide fallbacks
+  const imageUrl = post.featuredImage ? getImageUrl(post.featuredImage) : '/next.svg';
+  const formattedDate = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
-  });
+  }) : 'No date';
 
   // Calculate read time (approximately 200 words per minute)
-  const readTime = Math.max(1, Math.ceil(post.content.split(/\s+/).length / 200));
+  const readTime = post.content ? Math.max(1, Math.ceil(post.content.split(/\s+/).length / 200)) : 1;
 
   if (featured) {
     return (

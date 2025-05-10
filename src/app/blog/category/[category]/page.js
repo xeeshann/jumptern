@@ -5,7 +5,10 @@ import { ArrowLeft } from 'lucide-react';
 
 // Generate dynamic metadata for SEO
 export async function generateMetadata({ params }) {
-  const category = params.category.charAt(0).toUpperCase() + params.category.slice(1);
+  // Check if params.category is defined before accessing its properties
+  const category = params?.category ? 
+    params.category.charAt(0).toUpperCase() + params.category.slice(1) : 
+    'All Categories';
   
   return {
     title: `${category} Opportunities | Jumptern`,
@@ -37,9 +40,15 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CategoryPage({ params }) {
-  const category = params.category.charAt(0).toUpperCase() + params.category.slice(1);
+  // Check if params.category is defined before accessing its properties
+  const category = params?.category ? 
+    params.category.charAt(0).toUpperCase() + params.category.slice(1) : 
+    'All Categories';
+    
+  // Safely handle potentially undefined category
   const posts = await getPostsByCategory(category);
-    // Generate JSON-LD structured data
+    
+  // Generate JSON-LD structured data
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',

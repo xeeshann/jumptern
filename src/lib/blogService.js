@@ -62,6 +62,12 @@ export async function getRecentPosts(limit = 5) {
 
 export async function getPostsByCategory(category) {
   try {
+    // Ensure category is defined before using it in a query
+    if (!category) {
+      console.error('Category is undefined');
+      return [];
+    }
+    
     const response = await databases.listDocuments(
       databaseId,
       collectionId,
@@ -101,7 +107,16 @@ export async function getPost(slug) {
 }
 
 export function getImageUrl(fileId) {
-  return storage.getFileView(bucketId, fileId);
+  if (!fileId || !bucketId) {
+    console.warn('Missing fileId or bucketId for image retrieval');
+    return '/next.svg'; // Return default image if fileId or bucketId is missing
+  }
+  try {
+    return storage.getFileView(bucketId, fileId);
+  } catch (error) {
+    console.error(`Error generating image URL for file ${fileId}:`, error);
+    return '/next.svg';
+  }
 }
 
 export async function getCategories() {

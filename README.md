@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jumptern
+
+Jumptern is a platform dedicated to helping users find job listings, internship opportunities, and career advice. Built with Next.js, Appwrite, and Tailwind CSS, the platform offers a modern and responsive user experience.
+
+## Features
+
+- Job and internship listings from various industries
+- Career advice and professional development resources
+- Admin dashboard for content management
+- Responsive design for all devices
+- Search functionality
+- Category-based organization
+- Dark/Light mode theme
 
 ## Getting Started
 

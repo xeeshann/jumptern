@@ -16,10 +16,16 @@ const nextConfig = {
   compress: true,
   reactStrictMode: true,
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
   },
   experimental: {
     optimizeCss: true,
+  },
+  env: {
+    // Add a build timestamp to track when the app was deployed
+    NEXT_PUBLIC_BUILD_TIMESTAMP: new Date().toISOString(),
   },
 };
 

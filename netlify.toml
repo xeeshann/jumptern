@@ -1,0 +1,22 @@
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Example environment variables (DO NOT put actual values here)
+  # Define these in the Netlify dashboard instead
+  NEXT_PUBLIC_EXAMPLE = "example-value"
+
+# Create a function to help debug environment variables
+# Access it at /.netlify/functions/debug-env
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/debug"
+  to = "/debug"
+  status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

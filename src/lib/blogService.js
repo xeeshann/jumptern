@@ -1,13 +1,24 @@
 // src/lib/blogService.js
 import { databases, storage, ID, Query } from '@/lib/appwrite';
 
-// Database and collection IDs
+// Database and collection IDs with fallbacks for safety
 const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
 const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
 const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID;
 
+// Validate required configuration
+const validateConfig = () => {
+  if (!databaseId || !collectionId) {
+    console.error('Missing required Appwrite configuration: Database ID or Collection ID');
+    return false;
+  }
+  return true;
+};
+
 export async function getAllPosts() {
   try {
+    if (!validateConfig()) return [];
+    
     const response = await databases.listDocuments(
       databaseId,
       collectionId,
@@ -25,6 +36,8 @@ export async function getAllPosts() {
 
 export async function getFeaturedPosts(limit = 3) {
   try {
+    if (!validateConfig()) return [];
+    
     const response = await databases.listDocuments(
       databaseId,
       collectionId,
@@ -44,6 +57,8 @@ export async function getFeaturedPosts(limit = 3) {
 
 export async function getRecentPosts(limit = 5) {
   try {
+    if (!validateConfig()) return [];
+    
     const response = await databases.listDocuments(
       databaseId,
       collectionId,

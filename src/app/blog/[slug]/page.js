@@ -90,8 +90,7 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.excerpt || post.content.substring(0, 160),
-      images: [post.featuredImage 
+      description: post.excerpt || post.content.substring(0, 160),      images: [post.featuredImage 
         ? getImageUrl(post.featuredImage) 
         : `/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.category || 'Jumptern')}`],
       creator: '@jumptern',
@@ -100,25 +99,23 @@ export async function generateMetadata({ params }) {
 }
 
 // Function to generate JSON-LD structured data
-function generateJsonLd(post) {
-  return {
+function generateJsonLd(post) {  return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt || post.content.substring(0, 160),
-    image: post.featuredImage ? getImageUrl(post.featuredImage) : '/next.svg',
+    image: post.featuredImage ? getImageUrl(post.featuredImage) : '/icon.svg',
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,    author: {
       '@type': 'Organization',
       name: 'Jumptern',
       url: '/',
-    },
-    publisher: {
+    },    publisher: {
       '@type': 'Organization',
       name: 'Jumptern',
       logo: {
         '@type': 'ImageObject',
-        url: '/next.svg',
+        url: '/icon.svg',
       }
     },
     mainEntityOfPage: {
@@ -158,9 +155,8 @@ export default async function BlogPostPage({ params }) {
     });
       // Get related posts (here we're just getting recent posts, but you could filter by category)
     const relatedPosts = await getRecentPosts(3);
-    
-    // Get image URL
-    const imageUrl = post.featuredImage ? getImageUrl(post.featuredImage) : '/next.svg';
+      // Get image URL
+    const imageUrl = post.featuredImage ? getImageUrl(post.featuredImage) : '/icon.svg';
 
     // Generate JSON-LD structured data
     const jsonLd = generateJsonLd(post);
@@ -172,7 +168,7 @@ export default async function BlogPostPage({ params }) {
     const tocData = extractTOC(processedContent);
     
     return (
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto md:px-4 py-8">
         {/* Add JSON-LD structured data */}
         <script
           type="application/ld+json"
@@ -182,7 +178,7 @@ export default async function BlogPostPage({ params }) {
         {/* Back to blog link */}
         <div className="mb-8">          <Link href="/blog" className="neu-btn inline-flex items-center gap-2 text-gray-600 hover:text-primary-color transition-colors">
             <ArrowLeft size={18} />
-            <span>Back to all opportunities</span>
+            <span>Back to all Posts</span>
           </Link>
         </div>
         
@@ -213,15 +209,12 @@ export default async function BlogPostPage({ params }) {
                 <Clock size={16} />
                 <span>{readTime} min read</span>
               </div>
-              <button className="neu-btn flex items-center gap-1 text-primary-color hover:text-primary-dark transition-colors ml-auto">
-                <Share2 size={16} />
-                <span>Share</span>
-              </button>
+             
             </div>
           </div>
           
           {/* Featured Image */}
-          <div className="relative h-[300px] md:h-[500px] w-full neu-card rounded-2xl overflow-hidden mb-6">
+          <div className="relative h-[200px] md:h-[500px] w-full neu-card rounded-2xl overflow-hidden mb-6">
             <Image 
               src={imageUrl} 
               alt={post.title} 
@@ -236,7 +229,7 @@ export default async function BlogPostPage({ params }) {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Table of Contents (sticky sidebar) */}
           {tocData && tocData.length > 0 && (
-            <div className="lg:col-span-3 order-2 lg:order-1">
+            <div className="lg:col-span-3 order-1 lg:order-1">
               <div className="lg:sticky lg:top-8">
                 <TableOfContents tocData={tocData} />
               </div>

@@ -33,16 +33,18 @@ export default async function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-12 md:py-8">
-        <div className="container mx-auto px-4">
+      <section className="md:py-4 py-2">
+        <div className="container mx-auto px-2 md:px-4">
           <div className="flex flex-col md:flex-row items-center">
-            <div className="md:pr-12 p-8">
+            <div className="md:pr-12 p-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Find Your Next
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Career Opportunity</span>
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Jumptern</span>
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {' '}Job Listings and Internship posts.
+                </span>
               </h1>
               <p className="text-lg md:text-xl mb-8">
-                Explore our curated job listings, internship opportunities, and career advice for professionals at all career stages.
+                Explore our curated job listings, internship opportunities, and posts to kickstart your career.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/blog" className="neu-btn px-6 py-3 text-black font-medium rounded-full flex items-center gap-2">
@@ -62,11 +64,11 @@ export default async function Home() {
       {featuredPosts.length > 0 && (
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-12 p-4 rounded-lg">
+            <div className="flex md:items-center md:justify-between mb-12 p-4 rounded-lg flex-col md:flex-row">
               <h2 className="text-3xl font-bold">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Featured</span> Opportunities
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Featured</span> Posts
               </h2>
-              <Link href="/blog" className="neu-btn flex items-center gap-2 text-primary-color hover:text-primary-dark transition-colors font-medium">
+              <Link href="/blog" className="neu-btn text-sm flex items-center gap-2 text-primary-color hover:text-primary-dark transition-colors font-light">
                 View All <ArrowRight size={18} />
               </Link>
             </div>
@@ -86,11 +88,11 @@ export default async function Home() {
       {recentPosts.length > 0 && (
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-12 p-4 rounded-lg">
+            <div className="flex md:items-center md:justify-between mb-12 p-4 rounded-lg flex-col md:flex-row">
               <h2 className="text-3xl font-bold">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Recent</span> Opportunities
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Recent</span> Posts
               </h2>
-              <Link href="/blog" className="neu-btn flex items-center gap-2 text-primary-color hover:text-primary-dark transition-colors font-medium">
+              <Link href="/blog" className="neu-btn text-sm flex items-center gap-2 text-primary-color hover:text-primary-dark transition-colors font-light">
                 View All <ArrowRight size={18} />
               </Link>
             </div>

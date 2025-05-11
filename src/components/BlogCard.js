@@ -3,14 +3,13 @@ import Image from 'next/image';
 import { Calendar, Clock, Tag } from 'lucide-react';
 import { getImageUrl } from '@/lib/blogService';
 
-const BlogCard = ({ post, featured = false }) => {
-  // Handle safely when post might be undefined
+const BlogCard = ({ post, featured = false }) => {  // Handle safely when post might be undefined
   if (!post) {
     return null;
   }
   
   // Safely access post properties and provide fallbacks
-  const imageUrl = post.featuredImage ? getImageUrl(post.featuredImage) : '/next.svg';
+  const imageUrl = post.featuredImage ? getImageUrl(post.featuredImage) : '/icon.svg';
   const formattedDate = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -24,7 +23,7 @@ const BlogCard = ({ post, featured = false }) => {
     return (
       <Link href={`/blog/${post.slug}`} className="block">
         <div className="group neu-card rounded-xl overflow-hidden transition-all duration-300 h-full">
-          <div className="relative h-48 w-full">
+          <div className="relative h-42 w-full">
             <Image 
               src={imageUrl} 
               alt={post.title}
@@ -34,7 +33,7 @@ const BlogCard = ({ post, featured = false }) => {
               priority={featured}
             />
           </div>
-          <div className="p-5">
+          <div className="p-4">
             <div className="flex items-center gap-2 mb-3">
               <span className="neu-btn-primary text-xs font-medium text-white px-2 py-1 rounded-full transition-all">
                 {post.category}
@@ -46,7 +45,7 @@ const BlogCard = ({ post, featured = false }) => {
             <p className="mb-4 line-clamp-2">
               {post.excerpt || post.content.substring(0, 120) + '...'}
             </p>
-            <div className="neu-pressed p-3 rounded-lg flex items-center justify-between text-sm">
+            <div className="neu-pressed p-2 rounded-lg flex items-center justify-between text-xs">
               <div className="flex items-center gap-1">
                 <Calendar size={14} />
                 <span>{formattedDate}</span>
@@ -65,7 +64,7 @@ const BlogCard = ({ post, featured = false }) => {
   return (
     <Link href={`/blog/${post.slug}`} className="block">
       <div className="group neu-card rounded-xl overflow-hidden transition-all duration-300">
-        <div className="relative h-48 w-full">
+        <div className="relative h-42 w-full">
           <Image 
             src={imageUrl} 
             alt={post.title}
@@ -74,7 +73,7 @@ const BlogCard = ({ post, featured = false }) => {
             className="object-fit transition-transform rounded-md duration-500 group-hover:scale-105"
           />
         </div>
-        <div className="p-5">
+        <div className="p-4">
           <div className="flex items-center gap-2 mb-3">
             <span className="neu-btn-primary text-xs font-medium text-white px-2 py-1 rounded-full transition-all">
               {post.category}
@@ -86,7 +85,7 @@ const BlogCard = ({ post, featured = false }) => {
           <p className="mb-4 line-clamp-2">
             {post.excerpt || post.content.substring(0, 120) + '...'}
           </p>
-          <div className="neu-pressed p-3 rounded-lg flex items-center justify-between text-sm">
+          <div className="neu-pressed p-2 rounded-lg flex items-center justify-between text-xs">
             <div className="flex items-center gap-1">
               <Calendar size={14} />
               <span>{formattedDate}</span>

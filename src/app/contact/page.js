@@ -104,38 +104,15 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-lg">Email Us</h3>
                 <p className="text-gray-600 mb-1">For general inquiries:</p>
-                <a href="mailto:info@jumptern.tech" className="text-purple-600 hover:underline">
-                  info@jumptern.tech
+                <a href="mailto:xeeshannteeli@gmail.com" className="text-purple-600 hover:underline">
+                  xeeshannteeli@gmail.com
                 </a>
               </div>
             </div>
             
-            <div className="flex items-start gap-4">
-              <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-3 rounded-full text-white">
-                <PhoneIcon size={20} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Call Us</h3>
-                <p className="text-gray-600 mb-1">Mon-Fri from 9am to 5pm:</p>
-                <a href="tel:+1234567890" className="text-purple-600 hover:underline">
-                  +1 (234) 567-890
-                </a>
-              </div>
-            </div>
+           
             
-            <div className="flex items-start gap-4">
-              <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-3 rounded-full text-white">
-                <MapPin size={20} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Visit Us</h3>
-                <p className="text-gray-600">
-                  123 Career Avenue<br />
-                  Opportunity District<br />
-                  New Delhi, India 100001
-                </p>
-              </div>
-            </div>
+           
           </div>
           
           <div className="mt-8 pt-8 border-t border-gray-200">

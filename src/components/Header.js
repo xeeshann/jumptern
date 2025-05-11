@@ -12,10 +12,12 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 hd py-4 mb-8">
-      <div className="neu-container">
-        <div className="flex items-center justify-between">          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Jumptern
+      <div className="neu-container">        <div className="flex items-center justify-between">          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/icon.svg" alt="Jumptern Logo" className="w-8 h-8" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Jumptern
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -23,7 +25,7 @@ const Header = () => {
             <Link href="/" className="font-medium neu-btn hover:text-primary-color transition-colors">
               Home
             </Link>            <Link href="/blog" className="font-medium neu-btn hover:text-primary-color transition-colors">
-              Jobs & Internships
+              All Posts
             </Link>            <Link href="/about" className="font-medium neu-btn hover:text-primary-color transition-colors">
               About
             </Link>
@@ -55,7 +57,7 @@ const Header = () => {
             <Link href="/" className="font-medium py-2 hover:text-primary-color transition-colors">
               Home
             </Link>            <Link href="/blog" className="font-medium py-2 hover:text-primary-color transition-colors">
-              Jobs & Internships
+              All Posts
             </Link>            <Link href="/about" className="font-medium py-2 hover:text-primary-color transition-colors">
               About
             </Link>

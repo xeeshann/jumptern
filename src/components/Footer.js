@@ -9,9 +9,12 @@ const Footer = () => {
     <footer className="neu-flat mt-12 py-8">
       <div className="neu-container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-2">            <Link href="/" className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Jumptern
+          {/* Brand */}          <div className="col-span-1 md:col-span-2">            
+            <Link href="/" className="flex items-center gap-2">
+              <img src="/icon.svg" alt="Jumptern Logo" className="w-8 h-8" />
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Jumptern
+              </span>
             </Link>
             <p className="mt-4 text-gray-600 max-w-md">
               Your gateway to job listings, internship opportunities, and valuable career advice. Find your next professional step with Jumptern.
@@ -32,7 +35,7 @@ const Footer = () => {
           <div className="neu-card">
             <h3 className="font-semibold text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-3">              <li><Link href="/" className="text-gray-600 hover:text-primary-color transition-colors">Home</Link></li>
-              <li><Link href="/blog" className="text-gray-600 hover:text-primary-color transition-colors">Jobs & Internships</Link></li>
+              <li><Link href="/blog" className="text-gray-600 hover:text-primary-color transition-colors">All Posts</Link></li>
               <li><Link href="/about" className="text-gray-600 hover:text-primary-color transition-colors">About</Link></li>
               <li><Link href="/contact" className="text-gray-600 hover:text-primary-color transition-colors">Contact</Link></li>
             </ul>

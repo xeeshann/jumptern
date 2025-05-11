@@ -54,13 +54,12 @@ export default async function CategoryPage({ params }) {
     '@type': 'CollectionPage',
     name: `${category} Opportunities | Jumptern`,
     description: `Explore our collection of ${category.toLowerCase()} opportunities and resources. Find jobs, internships, and career advice.`,
-    url: `https://jumptern.tech/blog/category/${params.category}`,
-    publisher: {
+    url: `https://jumptern.tech/blog/category/${params.category}`,    publisher: {
       '@type': 'Organization',
       name: 'Jumptern',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://jumptern.tech/next.svg'
+        url: 'https://jumptern.tech/icon.svg'
       }
     },
     mainEntity: {

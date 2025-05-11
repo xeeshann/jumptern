@@ -41,7 +41,7 @@ export const metadata = {
     siteName: 'Jumptern',
     images: [
       {
-        url: 'https://jumptern.tech/next.svg',
+        url: 'https://jumptern.tech/icon.svg',
         width: 800,
         height: 600,
         alt: 'Jumptern Logo',
@@ -54,7 +54,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Jumptern - Jobs & Internships Resources',
     description: 'Your go-to platform for job listings, internship opportunities, and career advice',
-    images: ['https://jumptern.tech/next.svg'],
+    images: ['https://jumptern.tech/icon.svg'],
   },
 };
 
@@ -63,6 +63,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${montserrat.variable} ${merriweather.variable}`} dir="ltr">
       <head>
         <link rel="canonical" href="https://jumptern.tech" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
       </head>

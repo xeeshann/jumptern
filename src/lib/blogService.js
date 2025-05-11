@@ -124,13 +124,13 @@ export async function getPost(slug) {
 export function getImageUrl(fileId) {
   if (!fileId || !bucketId) {
     console.warn('Missing fileId or bucketId for image retrieval');
-    return '/next.svg'; // Return default image if fileId or bucketId is missing
+    return '/icon.svg'; // Return default image if fileId or bucketId is missing
   }
   try {
     return storage.getFileView(bucketId, fileId);
   } catch (error) {
     console.error(`Error generating image URL for file ${fileId}:`, error);
-    return '/next.svg';
+    return '/icon.svg';
   }
 }
 

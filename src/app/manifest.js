@@ -9,21 +9,20 @@ export default function manifest() {
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#764ba2',
-    icons: [
-      {
+    icons: [      {
         src: '/favicon.ico',
         sizes: 'any',
         type: 'image/x-icon',
       },
       {
-        src: '/next.svg',
+        src: '/icon.svg',
         sizes: '192x192',
-        type: 'image/svg',
+        type: 'image/svg+xml',
       },
       {
-        src: '/next.svg',
+        src: '/icon.svg',
         sizes: '512x512',
-        type: 'image/svg',
+        type: 'image/svg+xml',
       },
     ],
   };
